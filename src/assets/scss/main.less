@@ -1,0 +1,46 @@
+body {
+	position: relative;
+	background-color: @background;
+	text-align: center;
+	color: @primary;
+}
+
+#wrap {
+	max-width: 800px;
+	min-height: 100vh;
+	margin: 0 auto;
+	// border: blue 5px solid;
+}
+
+p, span, a, a:visited, button {
+    font-family: 'Grandstander';
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 1px;
+}
+
+a, a:visited {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.container {
+    margin: 30px 16px 50px;
+    padding: 20px;
+}
+
+button {
+    color: white;
+    text-align: center;
+    background-color: rgba(darken(@primary, 10), 0.6);
+    border-radius: 20px;
+    box-shadow: 0 0 3px rgba(@border, 0.3);
+    border: none;
+    padding: 15px;
+    width: 50%;
+}
+
+.img-transparent {
+    background-image: linear-gradient(rgba(white, 0), rgba(white, 0.6), rgba(white, 0.6), rgba(white, 0.6));
+    box-shadow: 0 0 15px rgba(@border, 0.3);
+}

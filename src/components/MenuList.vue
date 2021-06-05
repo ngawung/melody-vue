@@ -1,10 +1,12 @@
 <template>
 
 <div class="menu-container">
-	<div class="menu" v-for="list in lists" :key="list">
-        <img :src="list.image" />
-        <p>{{ list.text }}</p>
-    </div>
+        <router-link v-for="list in lists" :key="list" :to="{name: `${list.location}`}">
+            <div class="menu">
+                <img :src="list.image" />
+                <p>{{ list.text }}</p>
+            </div>
+        </router-link>
 </div>
 
 </template>

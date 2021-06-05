@@ -12,7 +12,7 @@
 </template>
 
 <script>
-// import eruda from 'eruda';
+import eruda from 'eruda';
 
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
@@ -23,7 +23,7 @@ export default {
     Header, Footer, Background
   },
   setup() {
-    // eruda.init();
+    eruda.init();
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <router-link to="/">
+        <router-link :to="{name: 'Home'}">
             <img alt="Logo Text" src="../assets/svg/logo-optimized.svg">
         </router-link>
     </div>

@@ -23,7 +23,7 @@ export default {
 		}
 	},
 	mounted() {
-		this.importAll(require.context("@/assets/image/button", true, /\.(png|jpe?g|svg|gif)@/));
+		this.importAll(require.context("@/assets/image/button/", true, /\.(png|jpe?g|svg|gif)$/));
 		if (new Date().getFullYear() > 2021) this.copyright = "2021 - " + new Date().getFullYear();
 	},
 	methods: {
@@ -45,6 +45,7 @@ footer {
     color: white;
     padding: 20px 0 10px;
     text-align: left;
+	margin-top: 20px;
     
     img {
         margin: 1px;

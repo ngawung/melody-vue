@@ -7,14 +7,34 @@ const routes = [
     name: 'Home',
     component: Home
   },
+
+  {
+    path: '/hotsprings',
+    name: 'HotspringsList',
+    component: () => import(/* webpackChunkName: "HotspringsList" */ '../views/HotspringsList.vue')
+  },
+  {
+    path: '/hotsprings/:post',
+    name: 'Hotsprings',
+    component: () => import(/* webpackChunkName: "Hotsprings" */ '../views/Hotsprings.vue')
+  },
+
+
+  // Static Page
+
   {
     path: '/convert-drastic',
     name: 'ConvertDrastic',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/ConvertDrastic.vue')
-  }
+    component: () => import(/* webpackChunkName: "ConvertDrastic" */ '../views/ConvertDrastic.vue')
+  },
+
+
+  // 404
+  {
+    path: '/:pathMatch(.*)*',
+    name: '404',
+    component: () => import(/* webpackChunkName: "ConvertDrastic" */ '../views/404.vue')
+  },
 ]
 
 const router = createRouter({

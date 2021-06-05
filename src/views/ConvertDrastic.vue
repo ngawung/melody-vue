@@ -15,7 +15,7 @@ import Box from '@/components/Box.vue';
 import Title from '@/components/Title.vue'
 
 export default {
-	name: 'Home',
+	name: 'ConvertDrastic',
 	components: {
 		Box, Title
 	},

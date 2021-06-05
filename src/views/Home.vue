@@ -77,7 +77,6 @@ export default {
   	}
   },
   mounted() {
-	console.log("home")
   }
 }
 </script>

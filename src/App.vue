@@ -12,6 +12,8 @@
 </template>
 
 <script>
+// import eruda from 'eruda';
+
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import Background from '@/components/Background.vue'
@@ -19,6 +21,9 @@ import Background from '@/components/Background.vue'
 export default {
   components: {
     Header, Footer, Background
+  },
+  setup() {
+    // eruda.init();
   }
 }
 </script>

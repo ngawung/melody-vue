@@ -21,14 +21,6 @@ export default {
     }
   },
   mounted() {
-    console.log("Mounted");
-    
-    // anime({
-    //   targets: '.title',
-    //   translateX: 30,
-    //   delay: 500,
-    //   duration: 800
-    // });
   }
 }
 </script>

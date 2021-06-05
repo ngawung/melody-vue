@@ -19,6 +19,16 @@ export default {
     	type: String,
     	default: "box"
     }
+  },
+  mounted() {
+    console.log("Mounted");
+    
+    // anime({
+    //   targets: '.title',
+    //   translateX: 30,
+    //   delay: 500,
+    //   duration: 800
+    // });
   }
 }
 </script>

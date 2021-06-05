@@ -4,21 +4,25 @@
     <img src="@/assets/image/melody.png" alt="Melody"/>
 </div>
 
-<Box type="box">
+<!-- <Box type="box">
 	<p>i just started my site, so there's not much here at the moment!</p>
-</Box>
+</Box> -->
 
-<Box type="box3">
+<!-- <Box type="box3">
 	<p>Are you lost? looking for my portofolio? <a href='#'>Click here</a></p>
-</Box>
+</Box> -->
 
 <Box type="box">
+	<p>Website ini masih dalam tahap pengembangan...!</p>
+</Box>
+
+<!-- <Box type="box">
 	<p>Click those fancy buttons below to see my dumb thoughts, project im working on, and some other wierd stuff!</p>
 </Box>
 
-<MenuList :lists="menus" />
+<MenuList :lists="menus" /> -->
 
-<Title msg="Latest Update" />
+<!-- <Title msg="Latest Update" />
 
 <Box type="box" class="margin-bottom">
 </Box>
@@ -28,7 +32,7 @@
 <Box type="box">
     <p>While you're here why not sign my guestbook</p>
     <img class="margin-top img-transparent" style="width: 80%; max-width: 300px" src="@/assets/image/guestbook.png" />
-</Box>
+</Box> -->
 
 <!-- <Title msg="ChatBox" /> -->
 
@@ -71,6 +75,9 @@ export default {
   			},
   		]
   	}
+  },
+  mounted() {
+	console.log("home")
   }
 }
 </script>

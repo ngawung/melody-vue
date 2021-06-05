@@ -1,7 +1,7 @@
 <template>
 <footer>
 	<div style="text-align: center ">
-		<img v-for="button in buttons" :src="button" />
+		<img v-for="button in buttons" :src="button" :key="button" />
 	</div>
 
 	<p class="small margin-top margin-bottom" style="text-align: center ">

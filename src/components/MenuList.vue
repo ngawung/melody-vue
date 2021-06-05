@@ -1,7 +1,7 @@
 <template>
 
 <div class="menu-container">
-	<div class="menu" v-for="list in lists">
+	<div class="menu" v-for="list in lists" :key="list">
         <img :src="list.image" />
         <p>{{ list.text }}</p>
     </div>

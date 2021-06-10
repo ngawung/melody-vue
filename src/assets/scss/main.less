@@ -12,18 +12,6 @@ body {
 	// border: blue 5px solid;
 }
 
-p, span, a, a:visited, button {
-    font-family: 'Grandstander';
-    font-size: 20px;
-    line-height: 24px;
-    letter-spacing: 1px;
-}
-
-a, a:visited {
-    color: inherit;
-    text-decoration: underline;
-}
-
 .container {
     margin: 30px 16px 50px;
     padding: 20px;
@@ -43,4 +31,21 @@ button {
 .img-transparent {
     background-image: linear-gradient(rgba(white, 0), rgba(white, 0.6), rgba(white, 0.6), rgba(white, 0.6));
     box-shadow: 0 0 15px rgba(@border, 0.3);
+}
+
+.border {
+    outline: 1px solid red;
+}
+
+.border2 {
+    outline: 1px solid blue;
+}
+
+.markdown {
+    text-align: left;
+    p {
+        font-size: 16px;
+        line-height: 1.8;
+        margin-bottom: 20px;
+    }
 }

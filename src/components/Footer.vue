@@ -4,7 +4,7 @@
 		<img v-for="button in buttons" :src="button" :key="button" />
 	</div>
 
-	<p class="small margin-top margin-bottom" style="text-align: center ">
+	<p class="small margin-top margin-bottom font" style="text-align: center ">
 		&copy; {{ copyright }} <a class="small" href="#">Melody Gigant Hotsprings</a>.
 	</p>
     

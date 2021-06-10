@@ -1,7 +1,7 @@
 <template>
 
 <div class="logo">
-    <img src="@/assets/image/melody.png" alt="Melody"/>
+	<img src="@/assets/image/melody.png" alt="Melody"/>
 </div>
 
 <Box type="box">
@@ -25,13 +25,19 @@
 <Title msg="Latest Update" />
 
 <Box type="box" class="margin-bottom">
+	<div class="lastUpdate" v-for="data in lastUpdate" :key="data">
+		<router-link :to="{name: 'Hotsprings', params: { year: data.params.year, month: data.params.month ,post: data.params.filename}}">
+			<p>{{ data.title }}</p>
+			<span>{{ data.date }}</span>
+		</router-link>
+	</div>
 </Box>
 
-<button class="">View More</button>
+<button class="font">View More</button>
 
 <Box type="box">
-    <p>While you're here why not sign my guestbook</p>
-    <img class="margin-top img-transparent" style="width: 80%; max-width: 300px" src="@/assets/image/guestbook.png" />
+	<p>While you're here why not sign my guestbook</p>
+	<img class="margin-top img-transparent" style="width: 80%; max-width: 300px" src="@/assets/image/guestbook.png" />
 </Box>
 
 <!-- <Title msg="ChatBox" /> -->
@@ -39,10 +45,12 @@
 <Box type="box">
 	<p>My Social media</p>
 	<span class="small">im usually only active on Facebook...</span>
-	<br><br>
-	<a class="social" v-for="social in socials" :key="social" :href="social.link">
+	<div>
+	<a class="social" v-for="social in socials" :key="social" :href="social.link" target="_blank">
 		{{ social.name }}
 	</a>
+	</div>
+	<span class="small2">Find all my social link in <router-link :to="{name: 'Home'}">Find Me</router-link> menu...</span>
 </Box>
 
 </template>
@@ -55,7 +63,7 @@ import Title from '@/components/Title.vue'
 export default {
   name: 'Home',
   components: {
-    Box, MenuList, Title
+	Box, MenuList, Title
   },
   data () {
   	return {
@@ -94,18 +102,45 @@ export default {
 		socials: [
 			{
 				name: "Facebook",
-				link: "#"
+				link: "https://www.facebook.com/ferdian244"
 			},{
 				name: "Twitter",
-				link: "#"
+				link: "https://www.twitter.com/but2erfly"
 			},{
 				name: "Instagram",
-				link: "#"
+				link: "https://www.instagram.com/libngl.so"
 			},
-		]
+		],
+		lastUpdate: this.manifest.hotsprings.default.lastUpdate.map(x => {
+			return {
+				params: {
+					year: x.filename.split("/")[0],
+					month: x.filename.split("/")[1],
+					filename: x.filename.split("/")[2],
+				},
+				title: x.title,
+				category: x.category,
+				date: this.formatDate(x.date),
+			}
+		})
   	}
   },
+  methods: {
+	  formatDate(date) {
+		  	const now = Math.floor(new Date().getTime() / 1000);
+			let delta = Math.abs(now - date);
+
+			const days = Math.floor(delta / (24 * 60 * 60));
+			const hours = Math.floor(delta / (60 * 60));
+			const minutes = Math.floor(delta / 60);
+
+			if (days > 0) return `${days} days ago`;
+			else if (hours > 0) return `${hours} hours ago`;
+			else return `${minutes} days ago`;
+	  }
+  },
   mounted() {
+	
   }
 }
 </script>
@@ -114,31 +149,55 @@ export default {
 
 .logo {
 	margin-top: 30px;
-    
-    img {
-        width: 70%;
-        max-width: 500px;
-        border-radius: 100%;
-        background-image: linear-gradient(rgba(white, 0), rgba(white, 0.6), rgba(white, 0.6), rgba(white, 0.6));
-        box-shadow: 0 0 15px rgba(#111, 0.3);
-    }
+	
+	img {
+		width: 70%;
+		max-width: 500px;
+		border-radius: 100%;
+		background-image: linear-gradient(rgba(white, 0), rgba(white, 0.6), rgba(white, 0.6), rgba(white, 0.6));
+		box-shadow: 0 0 15px rgba(#111, 0.3);
+	}
 }
 
 .social {
-	font-size: 16px;
-	padding: 10px 20px;
-	margin: 5px;
-	background-color: rgba(@primary, 0.8);
-	border-radius: 15px;
-	color: white;
-	text-shadow: none;
-	text-decoration: none;
-	box-shadow: 0 0 15px rgba(@border, 0.3);
+	font-size: 16px !important;
+	padding: 5px 20px !important;
+	margin: 15px 5px !important;
+	background-color: rgba(@primary, 0.8) !important;
+	border-radius: 15px !important;
+	color: white !important;
+	text-shadow: none !important;
+	text-decoration: none !important;
+	box-shadow: 0 0 15px rgba(@border, 0.3) !important;
+	display: inline-block !important;
 }
 
 .social:visited {
 	color: white;
 	text-decoration: underline;
+}
+
+.lastUpdate {
+	margin-bottom: 15px !important;
+	&:last-child {
+		margin-bottom: initial !important;
+	}
+	// outline: red 1px solid;
+
+	a {
+		text-decoration: none !important;
+		
+		p {
+			text-decoration: underline !important;
+			margin-bottom: 0;
+			line-height: initial;
+		}
+		
+		span {
+			font-size: 14px !important;
+			text-decoration: none !important;
+		}
+	}
 }
 	
 </style>

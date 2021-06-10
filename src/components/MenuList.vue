@@ -1,6 +1,6 @@
 <template>
 
-<div class="menu-container">
+<div class="menu-container font">
         <router-link v-for="list in lists" :key="list" :to="{name: `${list.location}`}">
             <div class="menu">
                 <img :src="list.image" />

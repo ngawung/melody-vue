@@ -1,6 +1,6 @@
 <template>
 
-<div :class="['container', type]">
+<div :class="['container', type]" class="font">
 	<slot></slot>
 	<!-- <p>{{ msg }}</p> -->
 </div>
@@ -9,19 +9,19 @@
 
 <script>
 export default {
-  name: 'Box',
-  props: {
-    // msg: {
-    // 	type: String,
-    // 	required: true
-    // },
-    type: {
-    	type: String,
-    	default: "box"
-    }
-  },
-  mounted() {
-  }
+	name: 'Box',
+	props: {
+		// msg: {
+		// 	type: String,
+		// 	required: true
+		// },
+		type: {
+			type: String,
+			default: "box"
+		}
+	},
+	mounted() {
+	}
 }
 </script>
 
@@ -29,27 +29,35 @@ export default {
 <style scoped lang="less">
 
 .box {
-    text-align: center;
-    text-shadow: 0px 0px 3px white, 0px 0px 3px white, 0px 0px 3px white, 0px 0px 3px white;
-    background-image: linear-gradient(rgba(white, 0.6), rgba(white, 0.6), rgba(@primary, 0.2));
-    border-radius: 20px;
-    box-shadow: 0 0 5px rgba(@border, 0.3);
+	text-align: center;
+	text-shadow: 0px 0px 3px white, 0px 0px 3px white, 0px 0px 3px white, 0px 0px 3px white;
+	background-image: linear-gradient(rgba(white, 0.6), rgba(white, 0.6), rgba(@primary, 0.2));
+	border-radius: 20px;
+	box-shadow: 0 0 5px rgba(@border, 0.3);
 }
 
 .box2 {
-    color: white;
-    text-align: center;
-    background-color: rgba(darken(@primary, 30), 0.6);
-    border-radius: 20px;
-    box-shadow: 0 0 5px rgba(@border, 0.3);
+	color: white;
+	text-align: center;
+	background-color: rgba(darken(@primary, 30), 0.6);
+	border-radius: 20px;
+	box-shadow: 0 0 5px rgba(@border, 0.3);
 }
 
 .box3 {
-    color: white;
-    text-align: center;
-    background-color: rgba(#558B2F, 0.6);
-    border-radius: 20px;
-    box-shadow: 0 0 5px rgba(@border, 0.3);
+	color: white;
+	text-align: center;
+	background-color: rgba(#558B2F, 0.6);
+	border-radius: 20px;
+	box-shadow: 0 0 5px rgba(@border, 0.3);
+}
+
+.content {
+	text-align: center;
+	text-shadow: 0px 0px 3px white, 0px 0px 3px white, 0px 0px 3px white, 0px 0px 3px white;
+	background-image: linear-gradient(rgba(white, 0.8), rgba(white, 0.8), rgba(@primary, 0.1));
+	border-radius: 20px;
+	box-shadow: 0 0 5px rgba(@border, 0.3);
 }
 
 </style>

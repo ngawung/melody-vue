@@ -61,73 +61,71 @@ import MenuList from '@/components/MenuList.vue'
 import Title from '@/components/Title.vue'
 
 export default {
-  name: 'Home',
-  components: {
-	Box, MenuList, Title
-  },
-  data () {
-  	return {
-  		menus: [
-  			{
-  				image: require("@/assets/image/placeholder.png"),
-  				text: "Visit the HotSprings",
-  				location: 'HotspringsList'
-  			},
-			// {
-  			// 	image: require("@/assets/image/placeholder.png"),
-  			// 	text: "Art Gallery Museum",
-  			// 	location: 'ArtGallery'
-  			// },{
-  			// 	image: require("@/assets/image/placeholder.png"),
-  			// 	text: "Rune Factory Walkthrought",
-  			// 	location: 'Walkthrought'
-  			// },{
-  			// 	image: require("@/assets/image/placeholder.png"),
-  			// 	text: "Melody Shrine",
-  			// 	location: 'MelodyShrine'
-  			// },{
-  			// 	image: require("@/assets/image/placeholder.png"),
-  			// 	text: "Project Changelogs",
-  			// 	location: 'Changelogs'
-  			// },{
-  			// 	image: require("@/assets/image/placeholder.png"),
-  			// 	text: "Boring Things",
-  			// 	location: 'Boring'
-  			// },{
-  			// 	image: require("@/assets/image/placeholder.png"),
-  			// 	text: "Find Me",
-  			// 	location: 'FindMe'
-  			// },
-  		],
-		socials: [
-			{
-				name: "Facebook",
-				link: "https://www.facebook.com/ferdian244"
-			},{
-				name: "Twitter",
-				link: "https://www.twitter.com/but2erfly"
-			},{
-				name: "Instagram",
-				link: "https://www.instagram.com/libngl.so"
-			},
-		],
-		lastUpdate: this.manifest.hotsprings.default.lastUpdate.map(x => {
-			return {
-				params: {
-					year: x.filename.split("/")[0],
-					month: x.filename.split("/")[1],
-					filename: x.filename.split("/")[2],
+	name: 'Home',
+	components: { Box, MenuList, Title },
+	data () {
+		return {
+			menus: [
+				{
+					image: require("@/assets/image/placeholder.png"),
+					text: "Visit the HotSprings",
+					location: 'HotspringsList'
 				},
-				title: x.title,
-				category: x.category,
-				date: this.formatDate(x.date),
-			}
-		})
-  	}
-  },
-  methods: {
-	  formatDate(date) {
-		  	const now = Math.floor(new Date().getTime() / 1000);
+				// {
+				// 	image: require("@/assets/image/placeholder.png"),
+				// 	text: "Art Gallery Museum",
+				// 	location: 'ArtGallery'
+				// },{
+				// 	image: require("@/assets/image/placeholder.png"),
+				// 	text: "Rune Factory Walkthrought",
+				// 	location: 'Walkthrought'
+				// },{
+				// 	image: require("@/assets/image/placeholder.png"),
+				// 	text: "Melody Shrine",
+				// 	location: 'MelodyShrine'
+				// },{
+				// 	image: require("@/assets/image/placeholder.png"),
+				// 	text: "Project Changelogs",
+				// 	location: 'Changelogs'
+				// },{
+				// 	image: require("@/assets/image/placeholder.png"),
+				// 	text: "Boring Things",
+				// 	location: 'Boring'
+				// },{
+				// 	image: require("@/assets/image/placeholder.png"),
+				// 	text: "Find Me",
+				// 	location: 'FindMe'
+				// },
+			],
+			socials: [
+				{
+					name: "Facebook",
+					link: "https://www.facebook.com/ferdian244"
+				},{
+					name: "Twitter",
+					link: "https://www.twitter.com/but2erfly"
+				},{
+					name: "Instagram",
+					link: "https://www.instagram.com/libngl.so"
+				},
+			],
+			lastUpdate: this.manifest.hotsprings.default.lastUpdate.map(x => {
+				return {
+					params: {
+						year: x.filename.split("/")[0],
+						month: x.filename.split("/")[1],
+						filename: x.filename.split("/")[2],
+					},
+					title: x.title,
+					category: x.category,
+					date: this.formatDate(x.date),
+				}
+			})
+		}
+	},
+	methods: {
+		formatDate(date) {
+			const now = Math.floor(new Date().getTime() / 1000);
 			let delta = Math.abs(now - date);
 
 			const days = Math.floor(delta / (24 * 60 * 60));
@@ -137,11 +135,11 @@ export default {
 			if (days > 0) return `${days} days ago`;
 			else if (hours > 0) return `${hours} hours ago`;
 			else return `${minutes} minutes ago`;
-	  }
-  },
-  mounted() {
-	
-  }
+		}
+	},
+	mounted() {
+
+	}
 }
 </script>
 

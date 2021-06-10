@@ -1,14 +1,14 @@
 <template>
-    <div>
-        <router-link :to="{name: 'Home'}">
-            <img alt="Logo Text" src="../assets/svg/logo-optimized.svg">
-        </router-link>
-    </div>
+<div>
+    <router-link :to="{name: 'Home'}">
+        <img alt="Logo Text" src="../assets/svg/logo-optimized.svg">
+    </router-link>
+</div>
 </template>
 
 <script>
 export default {
-  name: 'Header'
+    name: 'Header'
 }
 </script>
 

@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "post": "node post/index.js",
+    "generate": "node tools/generate.mjs",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "build2": "npm run generate && npm run build"
   },
   "dependencies": {
     "animejs": "^3.2.1",

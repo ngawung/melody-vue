@@ -1,12 +1,12 @@
 <template>
 
-	<Box type="box">
-		<p>Upload savefile drastic (.DSV) untuk convert ke savefile desmume (.SAV)</p>
-		
-		<input type="file" ref="input" accept=".dsv">
-	</Box>
+<Box type="box">
+	<p>Upload savefile drastic (.DSV) untuk convert ke savefile desmume (.SAV)</p>
+	
+	<input type="file" ref="input" accept=".dsv">
+</Box>
 
-	<button ref="btn" style="display: none">Convert</button>
+<button ref="btn" style="display: none">Convert</button>
 
 </template>
 
@@ -56,17 +56,17 @@ export default {
 </script>
 
 <style lang="less" scoped>
-	input[type="file"] {
-		// padding: 15px;
-		// border: 1px solid @primary;
-		background-color: white;
-		border-radius: 15px;
-		padding: 10px;
-		margin-top: 20px;
-		width: 80%;
-	}
+input[type="file"] {
+	// padding: 15px;
+	// border: 1px solid @primary;
+	background-color: white;
+	border-radius: 15px;
+	padding: 10px;
+	margin-top: 20px;
+	width: 80%;
+}
 
-	button {
-		margin-bottom: 30px;
-	}
+button {
+	margin-bottom: 30px;
+}
 </style>

@@ -1,11 +1,11 @@
 <template>
-	<p>hotsprings list</p>
+<p>hotsprings list</p>
 </template>
 
 <script>
 export default {
 	name: 'HotspringsList',
-    components: {}
+	components: {}
 }
 </script>
 

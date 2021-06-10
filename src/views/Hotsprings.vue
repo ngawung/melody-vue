@@ -1,27 +1,27 @@
 <template>
-	<Box type="content">
-		<div style="text-align: left">
-			<button @click="$router.go(-1)" class="font back">&lt go back</button>
-		</div>
-
-		<div class="meta">
-			<h1>{{ params.title }}</h1>
-			<span>{{ params.date }}</span>
-			<div><button class="font back category" v-for="category in params.category" :key="category" >{{ category }}</button></div>
-		</div>
-
-		<div ref="markdown" class="markdown">
-			<div class="loading">
-				<p> Loading your content...</p>
-			</div>
-		</div>
-	</Box>
-
-	<div ref="comment" style="display: none">
-		<Box type="box2">
-			<p>Comment disabled for this post! :D</p>
-		</Box>
+<Box type="content">
+	<div style="text-align: left">
+		<button @click="$router.go(-1)" class="font back">&lt go back</button>
 	</div>
+
+	<div class="meta">
+		<h1>{{ params.title }}</h1>
+		<span>{{ params.date }}</span>
+		<div><button class="font back category" v-for="category in params.category" :key="category" >{{ category }}</button></div>
+	</div>
+
+	<div ref="markdown" class="markdown">
+		<div class="loading">
+			<p> Loading your content...</p>
+		</div>
+	</div>
+</Box>
+
+<div ref="comment" style="display: none">
+	<Box type="box2">
+		<p>Comment disabled for this post! :D</p>
+	</Box>
+</div>
 </template>
 
 <script>
@@ -76,36 +76,36 @@ export default {
 </script>
 
 <style lang="less" scoped>
-	// i cant use css from inserted html here :/
-	// sound like problem for future me
-	// lemme try using global style instead
-	// ok it work...
-	.meta {
-		margin: 20px 0 30px;	
-		h1 {
-			font-size: 30px;
-			line-height: initial;
-		}
-
-		span {
-			font-size: 14px !important;
-			line-height: initial;
-		}
-
+// i cant use css from inserted html here :/
+// sound like problem for future me
+// lemme try using global style instead
+// ok it work...
+.meta {
+	margin: 20px 0 30px;	
+	h1 {
+		font-size: 30px;
+		line-height: initial;
 	}
 
-	.back {
-		text-align: left;
-		width: initial;
+	span {
 		font-size: 14px !important;
 		line-height: initial;
-		padding: 8px 13px;
 	}
 
-	.category {
-		font-size: 10px !important;
-		padding: 2px 8px;
-		margin: 0 5px;
-	}
+}
+
+.back {
+	text-align: left;
+	width: initial;
+	font-size: 14px !important;
+	line-height: initial;
+	padding: 8px 13px;
+}
+
+.category {
+	font-size: 10px !important;
+	padding: 2px 8px;
+	margin: 0 5px;
+}
 
 </style>

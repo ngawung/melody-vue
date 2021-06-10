@@ -6,17 +6,17 @@
 
 <script>
 export default {
-  name: 'Title',
-  props: {
-    msg: {
-    	type: String,
-    	required: true
-    },
-    size: {
-        type: String,
-        default: "large"
-    },
-  }
+	name: 'Title',
+	props: {
+		msg: {
+			type: String,
+			required: true
+		},
+		size: {
+			type: String,
+			default: "large"
+		},
+	}
 }
 </script>
 
@@ -24,7 +24,7 @@ export default {
 <style scoped lang="less">
 
 .title {
-    margin: 50px 0 30px;
+	margin: 50px 0 30px;
 }
 
 </style>

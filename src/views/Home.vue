@@ -136,7 +136,7 @@ export default {
 
 			if (days > 0) return `${days} days ago`;
 			else if (hours > 0) return `${hours} hours ago`;
-			else return `${minutes} days ago`;
+			else return `${minutes} minutes ago`;
 	  }
   },
   mounted() {

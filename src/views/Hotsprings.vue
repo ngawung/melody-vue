@@ -10,12 +10,18 @@
 			<div><button class="font back category" v-for="category in params.category" :key="category" >{{ category }}</button></div>
 		</div>
 
-		<div class="markdown" v-html="RenderMarkdown" />
+		<div ref="markdown" class="markdown">
+			<div class="loading">
+				<p> Loading your content...</p>
+			</div>
+		</div>
 	</Box>
 
-	<Box type="box2">
-		<p>Comment disabled for this post! :D</p>
-	</Box>
+	<div ref="comment" style="display: none">
+		<Box type="box2">
+			<p>Comment disabled for this post! :D</p>
+		</Box>
+	</div>
 </template>
 
 <script>
@@ -31,14 +37,24 @@ export default {
 		}
 	},
 	mounted() {
+		const markdown = this.$refs.markdown;
+
 		this.axios(`/content/hotsprings/${this.$route.params.year}/${this.$route.params.month}/${this.$route.params.post}.md`)
 			.then(res => {
 				const data = this.fm(res.data);
-				this.RenderMarkdown = this.marked(data.body, {
+				markdown.innerHTML = this.marked(data.body, {
 					breaks: true,
 					gfm: true,
 				});
 				this.params = data.attributes
+
+				// convert all internal link to router-link
+				markdown.querySelectorAll(".internal").forEach(x => {
+					x.addEventListener("click", e => {
+						e.preventDefault();
+						this.$router.push({ name: x.attributes.href.value })
+					})
+				})
 
 				// convert unix date
 				const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -47,9 +63,12 @@ export default {
 
 				// convert category
 				this.params.category = this.params.category.split(",").map(x => x.trim());
+
+				// show comment
+				this.$refs.comment.style.display = "block"
 			})
 			.catch(e => { 
-				this.RenderMarkdown = "error";
+				markdown.innerHTML = "Link Broken... Cannot Find Any Content"
 				console.log(e)
 			})
 	}

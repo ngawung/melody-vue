@@ -19,11 +19,13 @@ const FrontMatter = {
     hotsprings: {
         title: "Your Title",
         date: Math.floor(new Date().getTime() / 1000),
+        lastupdate: Math.floor(new Date().getTime() / 1000),
         category: "Uncategorized",
     },
     gallery: {
         title: "Your Title",
         date: Math.floor(new Date().getTime() / 1000),
+        lastupdate: Math.floor(new Date().getTime() / 1000),
         category: "Uncategorized",
         image: "your/path/here",
     }
@@ -99,6 +101,34 @@ switch(args[0]) {
             // sort array
             postArray.sort((a, b) => b.date - a.date);
 
+            // adding next and prev post frontmatter
+            for (let i=0; i<postArray.length; i++) {
+                const data2 = fs.readFileSync(resolve(config.PATH_POSTPATH, category, postArray[i].filename) + ".md", { encoding: "utf-8" });
+                const dataResult2 = fm(data2)
+
+                // next post
+                if (!((i-1) < 0)) {
+                    dataResult2.attributes.nextFile = postArray[i-1].filename
+                    dataResult2.attributes.nextTitle = postArray[i-1].title
+                }
+
+                // prev post
+                if (!((i+1) > (postArray.length-1))) {
+                    dataResult2.attributes.prevFile = postArray[i+1].filename
+                    dataResult2.attributes.prevTitle = postArray[i+1].title
+                }
+
+                // update post
+                let output = "---\n"
+                for (let key in dataResult2.attributes) {
+                    output += `${key}: ${dataResult2.attributes[key]}\n`
+                }
+                output += `---\n\n${dataResult2.body}`
+
+                // replace old file
+                fs.writeFileSync(resolve(config.PATH_POSTPATH, category, postArray[i].filename) + ".md", output);
+            }
+
             let paginationTotal = 0;
             let lastUpdatePost = [];
             
@@ -121,6 +151,9 @@ switch(args[0]) {
                 total: paginationTotal,
                 lastUpdate: lastUpdatePost,
             }
+
+
+            // add new meta to frontmatter
 
 
             // for future me... have fun fixing this shit... :)
@@ -153,12 +186,46 @@ switch(args[0]) {
 
     //////////////////////////
 
+    case "update":
+
+        for (let category in FrontMatter) {
+            // list all post in category
+            let postArray = getAllFiles(resolve(config.PATH_POSTPATH, category))
+    
+            postArray.forEach(post => {
+                const data = fs.readFileSync(post, { encoding: "utf-8" });
+                const dataResult = fm(data)
+
+                for (let key in FrontMatter[category]) {
+                    if (dataResult.attributes[key] == null) {
+                        // add new frontmatter
+                        dataResult.attributes[key] = FrontMatter[category][key]
+                    }
+                }
+
+                // format string
+                let output = "---\n"
+                for (let key in dataResult.attributes) {
+                    output += `${key}: ${dataResult.attributes[key]}\n`
+                }
+                output += `---\n\n${dataResult.body}`
+
+                // replace old file
+                fs.writeFileSync(post, output);
+            })
+        }
+
+        process.exit(0);
+
+    //////////////////////////
+
     default: printHelp();
 }
 
 function printHelp() {
     console.log("create <category> <filename>  # Create new post");
     console.log("generate                      # Generate post list");
+    console.log("update                        # update frontmatter");
     console.log("");
 
     let FrontKey = []

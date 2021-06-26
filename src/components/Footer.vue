@@ -48,7 +48,7 @@ footer {
 	margin-top: 20px;
     
     img {
-        margin: 1px;
+        margin: 1px 2px;
     }
     
     span {

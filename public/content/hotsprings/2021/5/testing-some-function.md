@@ -2,6 +2,11 @@
 title: Testing some function
 date: 1623295592
 category: Uncategorized, Programming, Vue3
+lastupdate: 1623295592
+nextFile: 2021/5/test
+nextTitle: Your Title
+prevFile: 2021/5/hello-world
+prevTitle: My First Post :D
 ---
 
 ok...

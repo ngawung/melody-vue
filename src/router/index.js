@@ -9,9 +9,15 @@ const routes = [
 	},
 
 	{
-		path: '/hotsprings',
+		path: '/hotsprings/page/:id?',
 		name: 'HotspringsList',
-		component: () => import(/* webpackChunkName: "HotspringsList" */ '../views/HotspringsList.vue')
+		component: () => import(/* webpackChunkName: "HotspringsList" */ '../views/HotspringsList.vue'),
+		props: (route) => {
+			console.log("props", route.params)
+			const id = Number.parseInt(route.params.id, 10)
+			if (Number.isNaN(id)) return { id: 0 };
+			else return { id }
+		}
 	},
 
 	{

@@ -5,10 +5,10 @@ module.exports = {
     'style-resources-loader': {
       preProcessor: 'less',
       patterns: [
-        path.resolve(__dirname, 'src/assets/scss/reset.less'),
-        path.resolve(__dirname, 'src/assets/scss/_variable.less'),
-        path.resolve(__dirname, 'src/assets/scss/_font.less'),
-        path.resolve(__dirname, 'src/assets/scss/main.less'),
+        path.resolve(__dirname, 'src/assets/less/reset.less'),
+        path.resolve(__dirname, 'src/assets/less/_variable.less'),
+        path.resolve(__dirname, 'src/assets/less/_font.less'),
+        path.resolve(__dirname, 'src/assets/less/main.less'),
       ]
     }
   }
